@@ -60,6 +60,7 @@ text = "quit"
 visible = false
 
 [node name="process_test" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 104, 88 )
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]

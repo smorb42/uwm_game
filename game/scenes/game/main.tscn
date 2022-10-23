@@ -18,5 +18,15 @@ render_target_update_mode = 3
 
 [node name="game" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
 
+[node name="press escape to open menu" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = -14.0
+margin_right = 89.0
+text = "press escape to open menu"
+
 [node name="game_settings" parent="." instance=ExtResource( 2 )]
 visible = false
