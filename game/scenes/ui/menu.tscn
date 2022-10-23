@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/ui/settings/menu_settings.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/menu.gd" type="Script" id=3]
+[ext_resource path="res://scenes/tests/process_test.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 1, 0.79303, 0.953125, 0.934364, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="title" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+theme = ExtResource( 1 )
+text = "UWM Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_bottom = -10.0
+grow_vertical = 0
+
+[node name="start" type="Button" parent="VBoxContainer"]
+margin_right = 51.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "start"
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 51.0
+margin_bottom = 32.0
+theme = ExtResource( 1 )
+text = "settings"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 51.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+text = "quit"
+
+[node name="menu_settings" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="process_test" parent="." instance=ExtResource( 4 )]
+position = Vector2( 104, 88 )
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

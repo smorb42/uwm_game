@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/ui/settings/game_settings.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/ui_theme.tres" type="Theme" id=2]
+
+[node name="game_settings" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="out_of_focus_shader" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="setings_panel" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -40.0
+margin_right = 48.0
+margin_bottom = 40.0
+color = Color( 0.160784, 0.160784, 0.160784, 1 )
+
+[node name="setings_panel_shadow" type="ColorRect" parent="setings_panel"]
+modulate = Color( 0.231373, 0.231373, 0.231373, 1 )
+show_behind_parent = true
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 99.0
+margin_bottom = 83.0
+color = Color( 0, 0, 0, 0.635294 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="setings_panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.5
+margin_top = -35.0
+margin_right = 43.5
+margin_bottom = 35.0
+
+[node name="back" type="Button" parent="setings_panel/VBoxContainer"]
+margin_right = 87.0
+margin_bottom = 14.0
+focus_neighbour_left = NodePath("../fullscreen")
+focus_neighbour_top = NodePath("../fullscreen")
+focus_neighbour_right = NodePath("../fullscreen")
+focus_neighbour_bottom = NodePath("../fullscreen")
+focus_next = NodePath("../fullscreen")
+focus_previous = NodePath("../fullscreen")
+theme = ExtResource( 2 )
+text = "back"
+
+[node name="fullscreen" type="CheckBox" parent="setings_panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 87.0
+margin_bottom = 34.0
+focus_neighbour_left = NodePath("../back")
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_right = NodePath("../back")
+focus_neighbour_bottom = NodePath("../back")
+focus_next = NodePath("../back")
+focus_previous = NodePath("../back")
+theme = ExtResource( 2 )
+text = "full screen"
+
+[node name="menu" type="Button" parent="setings_panel/VBoxContainer"]
+margin_top = 38.0
+margin_right = 87.0
+margin_bottom = 52.0
+focus_neighbour_left = NodePath("../fullscreen")
+focus_neighbour_top = NodePath("../fullscreen")
+focus_neighbour_right = NodePath("../fullscreen")
+focus_neighbour_bottom = NodePath("../fullscreen")
+focus_next = NodePath("../fullscreen")
+focus_previous = NodePath("../fullscreen")
+theme = ExtResource( 2 )
+text = "menu"
+
+[node name="quit" type="Button" parent="setings_panel/VBoxContainer"]
+margin_top = 56.0
+margin_right = 87.0
+margin_bottom = 70.0
+focus_neighbour_left = NodePath("../fullscreen")
+focus_neighbour_top = NodePath("../fullscreen")
+focus_neighbour_right = NodePath("../fullscreen")
+focus_neighbour_bottom = NodePath("../fullscreen")
+focus_next = NodePath("../fullscreen")
+focus_previous = NodePath("../fullscreen")
+theme = ExtResource( 2 )
+text = "quit"
+
+[connection signal="pressed" from="setings_panel/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="setings_panel/VBoxContainer/fullscreen" to="." method="_on_full_screen_toggled"]
+[connection signal="pressed" from="setings_panel/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="setings_panel/VBoxContainer/quit" to="." method="_on_quit_pressed"]
